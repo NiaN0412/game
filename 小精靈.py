@@ -45,10 +45,21 @@ def move(player: list[int], maze: list[list[int]], d: tuple[int, int], W: int, H
     player[0], player[1] = nx, ny
 
 
+def generate_enemy(W: int, H: int, enemy_site: list[list[int]]) -> None:
+    enemy_site.append([1, H - 2])
+    enemy_site.append([W - 2, 1])
+
+
+def enemy_move(maze: list[list[int]], enemy_site: list[list[int]]) -> None:
+    pass
+
+
 W = int(input("請輸入地圖長: "))
 H = int(input("請輸入地圖寬: "))
 maze = generate_maze(W, H)
 player = [1, 1]
+enemy_site: list[list[int]] = []
+generate_enemy(W, H, enemy_site)
 while True:
     show_maze(maze, W, H)
     di = input("輸入WASD來移動: ")
@@ -61,3 +72,5 @@ while True:
         move(player, maze, (0, 1), W, H)
     elif di == "D" or di == "d":
         move(player, maze, (1, 0), W, H)
+
+    enemy_move(maze, enemy_site)
