@@ -51,7 +51,7 @@ def generate_enemy(W: int, H: int, enemy_site: list[list[int]]) -> None:
 
 
 def enemy_move(maze: list[list[int]], enemy_site: list[list[int]]) -> None:
-    pass
+    
 
 
 W = int(input("請輸入地圖長: "))
